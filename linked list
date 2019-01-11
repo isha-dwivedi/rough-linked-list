@@ -47,7 +47,45 @@ class linkedlist{
         }
         
     }
-    //delete
+    
+     void insertat(int pos, int value){
+         //reach the place before the position
+         //create a node
+         node *current=head;
+         int i=0;
+         while(i<pos){
+             i++;
+             current=current->next;
+         }
+         //ceate node
+         node * temp=new node;
+         temp->data=value;
+         //abra ka dabra gili gili chhuu!
+         temp->next=current->next;
+         current->next=temp;
+         
+     }
+    
+     //deletion of last element
+        void Delete()
+        {
+            //store tail in temp
+            node * temp=tail;
+            //before tail ha to point to null
+            node *current=head;
+            while(current->next!=tail){
+           
+            current=current->next;
+        }
+            current->next=NULL;
+            //update tail
+            tail=current;
+            //delete temp
+            delete temp;
+            
+        }
+        
+   
     //display
     void display()
     {
@@ -61,6 +99,8 @@ class linkedlist{
         cout<<temp->data<<"->"<<endl;
         temp=temp->next;*/
         
+        
+       
     }
 };
 
@@ -68,7 +108,10 @@ int main()
 {
     linkedlist l1;
     l1.insert(1);
+     l1.insert(2);
+      l1.insert(3);
     l1.display();
-    
+    l1.Delete();
+    l1.display();
    return 0;
 }
